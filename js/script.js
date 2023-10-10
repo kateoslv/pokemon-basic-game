@@ -6,6 +6,20 @@ const charmander = document.querySelector("#charmander");
 const pikachu = document.querySelector("#pikachu");
 const zubat = document.querySelector("#zubat");
 
+const audio = document.querySelector("audio");
+audio.volume = 0.03;
+
+const musicControl = document.querySelector(".music-control");
+musicControl.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    event.target.src = `${event.target.src}`.includes('on.png')
+        ? '../assets/icons/off.png'
+        : '../assets/icons/on.png';
+    
+    `${event.target.src}`.includes('on.png') ? audio.play() : audio.pause();
+});
+
 function getRightPosition() {
     return parseInt(ash.style.right.split("px")) || 2;
 }
