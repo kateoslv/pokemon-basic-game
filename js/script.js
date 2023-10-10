@@ -2,6 +2,7 @@ const body = document.querySelector("body");
 const game = document.querySelector(".game");
 
 const count = document.querySelector("h1");
+const reset = document.querySelector("#reset");
 
 const ash = document.querySelector("#ash");
 
@@ -27,6 +28,11 @@ musicControl.addEventListener('click', (event) => {
     `${event.target.src}`.includes('on.png') ? audio.play() : audio.pause();
 });
 
+reset.addEventListener('click', () => {
+    window.location.reload();
+    reset.style.display = "none";
+});
+
 function clearCharactersAndFinishGame() {
     ash.style.display = "none";
     charmander.style.display = "none";
@@ -37,7 +43,7 @@ function clearCharactersAndFinishGame() {
     count.textContent = "";
 }
 
-let currentCount = 10;
+let currentCount = 60;
 
 const interval = setInterval(() => {
     if (currentCount <= 0) {
