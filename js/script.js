@@ -1,5 +1,10 @@
 const body = document.querySelector("body");
+
 const ash = document.querySelector("#ash");
+
+const charmander = document.querySelector("#charmander");
+const pikachu = document.querySelector("#pikachu");
+const zubat = document.querySelector("#zubat");
 
 function getRightPosition() {
     return parseInt(ash.style.right.split("px")) || 2;
@@ -7,6 +12,27 @@ function getRightPosition() {
 
 function getTopPosition() {
     return parseInt(ash.style.top.split("px")) || 2;
+}
+
+function findPokemons() {
+    if ((getTopPosition() >= 2 && getTopPosition() <= 98) &&
+            (getRightPosition() >= 130 && getRightPosition() <= 216)) {
+
+        charmander.style.display = "block";
+        return;
+    }
+    if ((getTopPosition() >= 266 && getTopPosition() <= 394) &&
+            (getRightPosition() >= 546 && getRightPosition() <= 650)) {
+
+        pikachu.style.display = "block";
+        return;
+    }
+    if ((getTopPosition() >= 474 && getTopPosition() <= 594) &&
+            (getRightPosition() <= 138 && getRightPosition() >= 42)) {
+                
+        zubat.style.display = "block";
+        return;
+    }
 }
 
 body.addEventListener("keydown", (event) => {
@@ -40,4 +66,5 @@ body.addEventListener("keydown", (event) => {
         default:
             break;
     }
+    findPokemons();
 });
